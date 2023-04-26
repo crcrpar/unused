@@ -37,5 +37,5 @@ jobs:
     - name: Install latest LLVM packages
       run: |
         apt update
-        apt install -y wget
+        apt install -y wget lsb-release wget software-properties-common gnupg
         bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"

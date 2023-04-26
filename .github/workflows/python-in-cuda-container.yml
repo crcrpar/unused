@@ -31,12 +31,9 @@ jobs:
         pip install flake8 pytest
         # NOTE(crcrpar): vision and audio might not be available at the moment
         pip install --pre torch --index-url https://download.pytorch.org/whl/nightly/cu121
-    - name: Lint with flake8
+    - name: Verify PyTorch Installation
       run: |
-        # stop the build if there are Python syntax errors or undefined names
-        # flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        # flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
+        python -c "import torch"      
+    - name: Install latest LLVM packages
       run: |
-        echo "pytest"
+        bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"

@@ -36,7 +36,8 @@ jobs:
         python -c "import torch; print(torch.__version__)"
     - name: Install latest LLVM packages
       run: |
+        apt update
+        apt install -y lsb-release wget software-properties-common gnupg
         wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
         apt update
-        apt install -y wget lsb-release wget software-properties-common gnupg
         apt install -y clang-15 lldb-15 lld-15

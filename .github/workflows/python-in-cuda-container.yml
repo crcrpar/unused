@@ -17,7 +17,7 @@ jobs:
 
     runs-on: ubuntu-20.04
     container:
-      image: nvidia/cuda:12.1.0-runtime-ubuntu20.04
+      image: nvidia/cuda:12.1.0-devel-ubuntu20.04
 
     steps:
     - name: Install latest LLVM packages

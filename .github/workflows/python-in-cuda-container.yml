@@ -55,7 +55,7 @@ jobs:
         pip install cmake ninja 'pybind11[global]'
         git clone https://github.com/nvidia/fuser --recursive
         cd fuser
-        python setup.py install
+        python setup.py develop
     - name: Verify nvfuser installation
       run: |
         cd

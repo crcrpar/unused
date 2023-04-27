@@ -56,3 +56,7 @@ jobs:
         git clone https://github.com/nvidia/fuser --recursive
         cd fuser
         python setup.py install
+    - name: Verify nvfuser installation
+      run: |
+        cd
+        python -c 'import torch; import nvfuser'

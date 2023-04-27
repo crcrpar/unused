@@ -49,6 +49,8 @@ jobs:
       run: |
         python -c "import torch; print(torch.__version__)"
     - name: Build something
+      env:
+        TORCH_CUDA_ARCH_LIST: "8.0 8.6 9.0+PTX"
       run: |
         pip install cmake ninja 'pybind11[global]'
         git clone https://github.com/nvidia/fuser --recursive

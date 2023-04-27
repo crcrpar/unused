@@ -37,10 +37,13 @@ jobs:
     - name: Install latest LLVM packages
       env:
         DEBIAN_FRONTEND: noninteractive
+        CLANG_VERSION: 15
       run: |
-        export DEBIAN_FRONTEND=noninteractive
         apt update
         apt install -y lsb-release wget software-properties-common gnupg
-        wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
-        apt update
-        apt install -y clang-15 lldb-15 lld-15
+        bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+        wget https://apt.llvm.org/llvm.sh
+        chmod +x llvm.sh
+        ./llvm.sh "${CLANG_VERSION}"
+        ln -sf clang-"${CLANG_VERSION}" /usr/bin/cc
+        ln -sf clang++-"${CLANG_VERSION}" /usr/bin/c++

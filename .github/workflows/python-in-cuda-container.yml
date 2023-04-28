@@ -50,12 +50,12 @@ jobs:
         python -c "import torch; print(torch.__version__)"
     - name: Build something
       env:
-        TORCH_CUDA_ARCH_LIST: "8.0 8.6 9.0+PTX"
+        TORCH_CUDA_ARCH_LIST: "8.0+PTX"
       run: |
         pip install cmake ninja 'pybind11[global]'
-        git clone https://github.com/nvidia/fuser --recursive
+        git clone https://github.com/crcrpar/fuser -b support_install_ --recursive
         cd fuser
-        python setup.py develop
+        python setup.py install
     - name: Verify nvfuser installation
       run: |
         cd

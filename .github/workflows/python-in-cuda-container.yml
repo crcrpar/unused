@@ -53,7 +53,7 @@ jobs:
         TORCH_CUDA_ARCH_LIST: "8.0+PTX"
       run: |
         pip install cmake ninja 'pybind11[global]'
-        git clone https://github.com/crcrpar/fuser -b support_install_ --recursive
+        git clone https://github.com/crcrpar/fuser -b put_C_to_build --recursive
         cd fuser
         python setup.py install
     - name: Verify nvfuser installation

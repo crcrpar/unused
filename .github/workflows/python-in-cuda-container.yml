@@ -20,6 +20,10 @@ jobs:
       image: nvidia/cuda:12.1.0-devel-ubuntu20.04
 
     steps:
+    - name: Install fundamental
+      run: |
+        apt update
+        apt install -y lsb-release wget software-properties-common gnupg git
     - uses: actions/checkout@v3
     - name: Set up Python 3.10
       uses: actions/setup-python@v3

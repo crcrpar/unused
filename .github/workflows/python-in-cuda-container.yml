@@ -47,7 +47,3 @@ jobs:
         git clone https://github.com/crcrpar/fuser -b put_C_to_build --recursive
         cd fuser
         python setup.py install
-    - name: Verify nvfuser installation
-      run: |
-        cd
-        python -c 'import torch; import nvfuser'

@@ -21,6 +21,8 @@ jobs:
 
     steps:
     - name: Install fundamental
+      env:
+        DEBIAN_FRONTEND: noninteractive
       run: |
         apt update
         apt install -y lsb-release wget software-properties-common gnupg git
